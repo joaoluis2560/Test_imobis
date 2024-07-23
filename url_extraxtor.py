@@ -5,6 +5,13 @@ from langchain_community.document_loaders.web_base import WebBaseLoader
 from langchain_openai.chat_models import ChatOpenAI
 import pandas as pd
 
+import os
+from dotenv import load_dotenv
+load_dotenv()
+
+# Get OpenAI API key
+openai_api_key = os.getenv('OPENAI_API_KEY')
+
 df = pd.read_csv('urls.csv')
 
 private_area = ResponseSchema(name='private_area', 
@@ -246,7 +253,7 @@ for idx_sublista,sublist in enumerate(final_urls):
             strDoc += doc.page_content
         strDoc
 
-        chat = ChatOpenAI(openai_api_key="sk-proj-bf7gDYfDj4Gyz8R0p0mtT3BlbkFJeDxFZT4vhGiBrukOioyH")
+        chat = ChatOpenAI()
         resposta = chat.invoke(template.format_messages(documentos=strDoc))
 
         try:
