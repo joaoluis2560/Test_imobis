@@ -9,7 +9,6 @@ import os
 from dotenv import load_dotenv
 load_dotenv()
 
-# Get OpenAI API key
 openai_api_key = os.getenv('OPENAI_API_KEY')
 
 df = pd.read_csv('urls.csv')
