@@ -246,7 +246,7 @@ for idx_sublista,sublist in enumerate(final_urls):
             strDoc += doc.page_content
         strDoc
 
-        chat = ChatOpenAI()
+        chat = ChatOpenAI(openai_api_key="sk-proj-bf7gDYfDj4Gyz8R0p0mtT3BlbkFJeDxFZT4vhGiBrukOioyH")
         resposta = chat.invoke(template.format_messages(documentos=strDoc))
 
         try:
